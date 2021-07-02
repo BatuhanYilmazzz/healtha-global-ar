@@ -34,7 +34,7 @@ function GozSaglıgı() {
               id='left-tabs-example'
               defaultActiveKey={
                 (gozSaglıgıState && gozSaglıgıState[0].goz_tabs[0].title) ||
-                "Intralase Lasik"
+                "ليزك إنتراليز (Intralase lasik)"
               }
             >
               <Row className='flex-md-row-reverse'>

@@ -278,12 +278,11 @@ export const AboutUsStyled = styled.div`
   h1 {
     font-size: 2rem;
     color: #47b9bb;
-    margin: 3rem auto;
   }
   p {
     color: #818386;
     font-size: 1.1rem;
-    margin-bottom: 3rem;
+    margin: 4rem auto;
     direction: rtl;
   }
 `;

@@ -48,7 +48,9 @@ const Gallery = () => {
                     <img
                       src={item}
                       alt={item}
-                      onClick={() => setState({ ...state, isOpen: true })}
+                      onClick={() =>
+                        setState({ photoIndex: index, isOpen: true })
+                      }
                     />
                   </div>
                 ))}
