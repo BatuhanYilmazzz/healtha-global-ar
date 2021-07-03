@@ -27,3 +27,5 @@ export const GET_OTHERS = "GET_OTHERS";
 export const GET_FORMNAMES = "GET_FORMNAMES";
 
 export const GET_ILETISIM = "GET_ILETISIM";
+
+export const GET_ORGANIZATIONS = "GET_ORGANIZATIONS";

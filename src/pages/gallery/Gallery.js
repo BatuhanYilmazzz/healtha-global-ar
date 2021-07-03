@@ -16,7 +16,7 @@ const Gallery = () => {
   const swiperimages =
     galeriState &&
     galeriState[0].gallery_images.map(
-      (item) => process.env.REACT_APP_API_URL + item.image.url
+      (item) => process.env.REACT_APP_API_URL + item?.image?.url
     );
   // images && images.map((e) => process.env.REACT_APP_API_URL + e.url);
   const [state, setState] = useState({

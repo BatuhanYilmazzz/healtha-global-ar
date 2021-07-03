@@ -72,7 +72,7 @@ function GuzellikMerkezi() {
                 guzellikMerkeziState[0].beauty_photos.map((item) => (
                   <div className='col-sm-12 col-md-6 col-lg-3'>
                     <img
-                      src={process.env.REACT_APP_API_URL + item.image.url}
+                      src={process.env.REACT_APP_API_URL + item?.image?.url}
                       alt='güzellik merkezi'
                     />
                   </div>

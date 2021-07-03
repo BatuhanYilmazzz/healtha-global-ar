@@ -65,7 +65,9 @@ function EstetikPlastikCerrahi() {
                           <br />
                           <br />
                           <img
-                            src={process.env.REACT_APP_API_URL + item.image.url}
+                            src={
+                              process.env.REACT_APP_API_URL + item?.image?.url
+                            }
                             alt={item.title}
                           />
                           <br />

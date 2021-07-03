@@ -14,6 +14,7 @@ import {
   GET_OTHERS,
   GET_FORMNAMES,
   GET_ILETISIM,
+  GET_ORGANIZATIONS,
 } from "./types";
 
 export const dataReducer = (state, action) => {
@@ -92,6 +93,11 @@ export const dataReducer = (state, action) => {
       return {
         ...state,
         iletisimState: action.payload,
+      };
+    case GET_ORGANIZATIONS:
+      return {
+        ...state,
+        organizationsState: action.payload,
       };
 
     default:

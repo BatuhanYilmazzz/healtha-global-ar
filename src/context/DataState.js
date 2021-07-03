@@ -18,6 +18,7 @@ import {
   GET_OTHERS,
   GET_FORMNAMES,
   GET_ILETISIM,
+  GET_ORGANIZATIONS,
 } from "./types";
 
 const DataState = (props) => {
@@ -37,6 +38,7 @@ const DataState = (props) => {
     othersState: undefined,
     formNamesState: undefined,
     iletisimState: undefined,
+    organizationsState: undefined,
   };
   const [state, dispatch] = useReducer(dataReducer, initialState);
   // Global Axios Header
@@ -239,6 +241,20 @@ const DataState = (props) => {
     }
   };
 
+  const getOrganizations = async () => {
+    try {
+      const res = await axios.get(
+        `${process.env.REACT_APP_API_URL}/organizasyons`
+      );
+      dispatch({
+        type: GET_ORGANIZATIONS,
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <DataContext.Provider
       value={{
@@ -259,6 +275,7 @@ const DataState = (props) => {
         getGaleri,
         getAnaSayfa,
         getOthers,
+        getOrganizations,
         anasayfaState: state.anasayfaState,
         sacEkimiState: state.sacEkimiState,
         gozSaglıgıState: state.gozSaglıgıState,
@@ -272,6 +289,7 @@ const DataState = (props) => {
         othersState: state.othersState,
         formNamesState: state.formNamesState,
         iletisimState: state.iletisimState,
+        organizationsState: state.organizationsState,
       }}
     >
       {props.children}
