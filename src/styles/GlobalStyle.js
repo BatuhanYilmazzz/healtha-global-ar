@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 
@@ -209,7 +209,23 @@ ul {
   }
 }
 
-
+.modal-body{
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  svg{
+    fill: #47B9BB;
+    margin: 1rem auto;
+  }
+}
+.modal-header{
+  border-bottom: none;
+  span{
+    color: #47B9BB;
+  }
+}
 `;
 
 export default GlobalStyle;

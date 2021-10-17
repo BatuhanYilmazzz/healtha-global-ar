@@ -1,35 +1,40 @@
-import React, { useState } from 'react';
-import { ConsultancyStyled } from '../../styles/pages';
-import emailjs from 'emailjs-com';
+import React, { useState } from "react";
+import { ConsultancyStyled } from "../../styles/pages";
+import emailjs from "emailjs-com";
+import { emailjsInfo } from "../../constant/index";
+
 function Consultancy() {
   const [state, setState] = useState({
-    name: '',
-    email: '',
-    service: '',
-    message: '',
+    name: "",
+    email: "",
+    service: "",
+    message: "",
   });
   const onChange = (e) => {
     setState({ ...state, [e.target.name]: e.target.value });
   };
 
   var template_params = {
-    reply_to: 'reply_to_value',
+    reply_to: "reply_to_value",
     from_name: `${state.name}`,
-    to_name: 'Aksan Health',
-    message_html: `I am ${state.name} <br/> My email adress: ${state.email}<br/> I want to get service about ${state.service} <br/> Message: ${state.message}`,
+    to_name: "Aksan Health",
+    message: `I am ${state.name} <br/> My email adress: ${state.email}<br/> I want to get service about ${state.service} <br/> Message: ${state.message}`,
   };
-  var service_id = 'aksanhealth';
-  var template_id = 'mainpage';
-  var user_id = 'user_w83tNLLtCjsDK9FeoB3ex';
+
   function sendEmail(e) {
     e.preventDefault();
-    emailjs.send(service_id, template_id, template_params, user_id);
-    alert('We will keep in touch you as soon as possible');
+    emailjs.send(
+      emailjsInfo.service_id,
+      emailjsInfo.template_id,
+      template_params,
+      emailjsInfo.user_id
+    );
+    alert("We will keep in touch you as soon as possible");
     setState({
-      name: '',
-      email: '',
-      service: '',
-      message: '',
+      name: "",
+      email: "",
+      service: "",
+      message: "",
     });
   }
   return (

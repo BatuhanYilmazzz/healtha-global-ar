@@ -1,38 +1,43 @@
-import React, { Fragment, useContext, useState } from 'react';
-import { ContactFormStyled, ContactFormBodyStyled } from '../styles/components';
-import DataContext from '../context/dataContext';
-import emailjs from 'emailjs-com';
-
+import React, { Fragment, useContext, useState } from "react";
+import { ContactFormStyled, ContactFormBodyStyled } from "../styles/components";
+import DataContext from "../context/dataContext";
+import emailjs from "emailjs-com";
+import { useHistory } from "react-router";
+import { emailjsInfo } from "../constant/index";
 function ContactForm() {
   const dataContext = useContext(DataContext);
   const { openHandleState, formState } = dataContext;
+  const history = useHistory();
   const [state, setState] = useState({
-    name: '',
-    email: '',
-    service: '',
-    phone: '',
+    name: "",
+    email: "",
+    service: "",
+    phone: "",
   });
   const onChange = (e) => {
     setState({ ...state, [e.target.name]: e.target.value });
   };
   var template_params = {
-    reply_to: 'reply_to_value',
+    reply_to: "reply_to_value",
     from_name: `${state.name}`,
-    to_name: 'Aksan Health',
-    message_html: `I am ${state.name} <br/> My email adress: ${state.email}<br/> My phone number : ${state.phone}<br/>. I want to get service about ${state.service}`,
+    to_name: "Aksan Health",
+    message: `I am ${state.name} <br/> My email adress: ${state.email}<br/> My phone number : ${state.phone}<br/>. I want to get service about ${state.service}`,
   };
-  var service_id = 'aksanhealth';
-  var template_id = 'template_JYeyN37b';
-  var user_id = 'user_w83tNLLtCjsDK9FeoB3ex';
+
   function sendEmail(e) {
     e.preventDefault();
-    emailjs.send(service_id, template_id, template_params, user_id);
-    alert('We will keep in touch you as soon as possible');
+    emailjs.send(
+      emailjsInfo.service_id,
+      emailjsInfo.template_id,
+      template_params,
+      emailjsInfo.user_id
+    );
+    alert("We will keep in touch you as soon as possible");
     setState({
-      name: '',
-      email: '',
-      phone: '',
-      service: '',
+      name: "",
+      email: "",
+      phone: "",
+      service: "",
     });
   }
   return (
@@ -40,7 +45,7 @@ function ContactForm() {
       <ContactFormStyled>
         <button
           className='contact-form-icon'
-          onClick={() => openHandleState('block')}
+          onClick={() => history.push("/contact-form")}
         >
           <p>نموذج الاتصال</p>
           <img src='/images/form.png' alt='form' />
@@ -50,7 +55,7 @@ function ContactForm() {
       <ContactFormBodyStyled style={{ display: `${formState}` }}>
         <button
           className='close-button'
-          onClick={() => openHandleState('none')}
+          onClick={() => openHandleState("none")}
         >
           X
         </button>

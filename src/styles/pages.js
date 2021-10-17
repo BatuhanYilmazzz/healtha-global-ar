@@ -546,3 +546,125 @@ export const EstetikPlastikCerrahiStyled = styled.div`
     margin-bottom: 2rem;
   }
 `;
+
+/****************** CONTACT FORM PAGE STYLES********************/
+
+export const ContactFormPageStyled = styled.div`
+  min-height: 100vh;
+  min-width: 100vw;
+  text-align: center;
+  padding-bottom: 3rem;
+  text-align: left;
+
+  .row {
+    flex-direction: row-reverse;
+  }
+  .input-group {
+    flex-direction: row-reverse;
+  }
+
+  .col {
+    @media (max-width: 768px) {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+  }
+  .col-3 {
+    @media (max-width: 768px) {
+      padding-left: 0;
+    }
+  }
+
+  h6 {
+    font-size: 16px;
+    color: #47b9bb;
+    font-weight: 600;
+    text-align: right;
+  }
+  h5 {
+    font-size: 18px;
+    color: #47b9bb;
+    font-weight: 600;
+    text-align: right;
+  }
+
+  .wrapper {
+    max-width: 660px;
+    margin: auto;
+    padding: 0 10px;
+    h3 {
+      color: #47b9bb;
+      font-size: 2rem;
+      text-align: center;
+    }
+  }
+  .contact {
+    h1 {
+      color: #47b9bb;
+      font-size: 2rem;
+    }
+    @media (max-width: 768px) {
+      text-align: center;
+    }
+  }
+  .form-control {
+    border: 2px solid #47b9bb;
+  }
+  .form-label {
+    font-size: 14px;
+    color: #818386;
+    display: block;
+    text-align: right;
+  }
+  textarea::-webkit-input-placeholder,
+  input::-webkit-input-placeholder {
+    font-size: 15px;
+    line-height: 3;
+    color: rgba(129, 131, 134, 0.5);
+  }
+  .input-group-text {
+    background-color: white;
+    border: none;
+    padding: 0 0.75rem;
+    input {
+      border: 2px solid #47b9bb;
+    }
+  }
+  .checkboxForm-label {
+    margin-bottom: 0;
+  }
+  hr {
+    border-bottom: 1px solid rgba(71, 185, 187, 0.3);
+    border-top: none;
+    margin: 0.5rem 0;
+  }
+  .contact-us {
+    display: block;
+    border: 2px solid #47b9bb;
+    font-size: 1.1rem;
+    padding: 1rem 5rem;
+    background-color: transparent;
+    border-radius: 50px;
+    color: #47b9bb;
+    transition: all 0.3s ease-in;
+    margin: 3rem 0 3rem auto;
+    @media (max-width: 768px) {
+      padding: 0.7rem 3rem;
+    }
+    &:hover {
+      background-color: #47b9bb;
+      color: #fff;
+    }
+  }
+  .messages-wrapper {
+    color: #818386;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    max-width: 850px;
+    margin: 1rem auto;
+    input {
+      margin-left: 1rem;
+    }
+  }
+`;
