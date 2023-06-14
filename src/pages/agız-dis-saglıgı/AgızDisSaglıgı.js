@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { AgızDisSaglıgıStyled } from "../../styles/pages";
 import DataContext from "../../context/dataContext";
 import Markdown from "markdown-to-jsx";
+import { images } from "../../constant/images";
 
 function AgızDisSaglıgı() {
   const dataContext = useContext(DataContext);
@@ -19,8 +20,8 @@ function AgızDisSaglıgı() {
           backgroundImage:
             agızVeDisState &&
             `url(${
-              process.env.REACT_APP_API_URL +
-              agızVeDisState[0]?.header_image?.url
+             /*  process.env.REACT_APP_API_URL +
+              agızVeDisState[0]?.header_image?.url */ images.agızVeDis.header
             })`,
         }}
       >
@@ -40,8 +41,9 @@ function AgızDisSaglıgı() {
                   <img
                     className='w-100'
                     src={
-                      process.env.REACT_APP_API_URL +
-                      agızVeDisState[0]?.main_part?.img_1.url
+                    /*   process.env.REACT_APP_API_URL + 
+                      agızVeDisState[0]?.main_part?.img_1.url */  images
+                        .agızVeDis.images[0]
                     }
                     alt=''
                   />

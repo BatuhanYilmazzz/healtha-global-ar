@@ -3,6 +3,7 @@ import { EstetikPlastikCerrahiStyled } from "../../styles/pages";
 import { Row, Nav, Col, Tab } from "react-bootstrap";
 import DataContext from "../../context/dataContext";
 import Markdown from "markdown-to-jsx";
+import { images } from "../../constant/images";
 
 function EstetikPlastikCerrahi() {
   const dataContext = useContext(DataContext);
@@ -22,8 +23,9 @@ function EstetikPlastikCerrahi() {
           backgroundImage:
             estetikPlastikCerState &&
             `url(${
-              process.env.REACT_APP_API_URL +
-              estetikPlastikCerState[0]?.header_image?.url
+            /*   process.env.REACT_APP_API_URL +
+              estetikPlastikCerState[0]?.header_image?.url */ images
+                .estetikVePlastikCerrahi.header
             })`,
         }}
       >
@@ -58,7 +60,7 @@ function EstetikPlastikCerrahi() {
                 <Col sm={9}>
                   <Tab.Content>
                     {estetikPlastikCerState &&
-                      estetikPlastikCerState[0].estetik_tabs.map((item) => (
+                      estetikPlastikCerState[0].estetik_tabs.map((item,index) => (
                         <Tab.Pane eventKey={item.title} key={item.key}>
                           <h1> {item.title}</h1>
                           <Markdown>{item.description}</Markdown>
@@ -66,7 +68,8 @@ function EstetikPlastikCerrahi() {
                           <br />
                           <img
                             src={
-                              process.env.REACT_APP_API_URL + item?.image?.url
+                             /*  process.env.REACT_APP_API_URL + item?.image?.url */  images
+                                  .estetikVePlastikCerrahi.images[index]
                             }
                             alt={item.title}
                           />

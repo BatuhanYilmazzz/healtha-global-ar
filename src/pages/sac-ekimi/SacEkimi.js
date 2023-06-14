@@ -3,6 +3,7 @@ import { SacEkimiStyled } from "../../styles/pages";
 import { Row, Nav, Col, Tab } from "react-bootstrap";
 import DataContext from "../../context/dataContext";
 import Markdown from "markdown-to-jsx";
+import { images } from "../../constant/images";
 
 function SacEkimi() {
   const dataContext = useContext(DataContext);
@@ -20,8 +21,8 @@ function SacEkimi() {
           backgroundImage:
             sacEkimiState &&
             `url(${
-              process.env.REACT_APP_API_URL +
-              sacEkimiState[0]?.header_image?.url
+            /*   process.env.REACT_APP_API_URL +
+              sacEkimiState[0]?.header_image?.url */ images.sacEkimi.header
             })`,
         }}
       >
@@ -53,14 +54,15 @@ function SacEkimi() {
                 <Col sm={9}>
                   <Tab.Content>
                     {sacEkimiState &&
-                      sacEkimiState[0].sac_ekimi_tab.map((item) => (
+                      sacEkimiState[0].sac_ekimi_tab.map((item,index) => (
                         <Tab.Pane eventKey={item.title} key={item.key}>
                           <h1> {item.title}</h1>
                           <Markdown>{item.description}</Markdown>
 
                           <img
                             src={
-                              process.env.REACT_APP_API_URL + item?.image?.url
+                            /*   process.env.REACT_APP_API_URL + item?.image?.url */ images
+                                .sacEkimi.images[index]
                             }
                             alt={item.title}
                           />

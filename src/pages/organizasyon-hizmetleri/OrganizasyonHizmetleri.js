@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { OrganizasyonHizmetleriStyled } from "../../styles/pages";
 import DataContext from "../../context/dataContext";
 import Markdown from "markdown-to-jsx";
+import { images } from "../../constant/images";
 
 const OrganizasyonHizmetleri = () => {
   const dataContext = useContext(DataContext);
@@ -19,8 +20,9 @@ const OrganizasyonHizmetleri = () => {
           backgroundImage:
             organizationsState &&
             `url(${
-              process.env.REACT_APP_API_URL +
-              organizationsState[0]?.header_image?.url
+             /*  process.env.REACT_APP_API_URL +
+              organizationsState[0]?.header_image?.url */ images
+                .organizasyonHizmetleri.header
             })`,
         }}
       >
@@ -40,10 +42,11 @@ const OrganizasyonHizmetleri = () => {
           <div className='container'>
             <div className='row '>
               {organizationsState &&
-                organizationsState[0]?.images.map((item) => (
+                organizationsState[0]?.images.map((item,index) => (
                   <div className='col-sm-12 col-md-6 col-lg-3'>
                     <img
-                      src={process.env.REACT_APP_API_URL + item?.image?.url}
+                      src={/* process.env.REACT_APP_API_URL + item?.image?.url */ images
+                      .organizasyonHizmetleri.images[index]}
                       alt='güzellik merkezi'
                     />
                   </div>

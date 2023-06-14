@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ContactUsStyled } from "../../styles/pages";
 import Map from "../../layout/Map";
 import emailjs from "emailjs-com";
+import { images } from "../../constant/images";
 
 function ContactUs() {
   const [state, setState] = useState({
@@ -41,7 +42,7 @@ function ContactUs() {
     <ContactUsStyled>
       <div
         className='masthead'
-        style={{ backgroundImage: `url(/images/contact-us/contact.jpg)` }}
+        style={{ backgroundImage: `url(${images.contact.header})` }}
       >
         <h1>اتصل</h1>
       </div>

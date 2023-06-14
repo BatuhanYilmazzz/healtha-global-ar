@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { KbbStyled } from "../../styles/pages";
 import DataContext from "../../context/dataContext";
 import Markdown from "markdown-to-jsx";
+import { images } from "../../constant/images";
 
 function Kbb() {
   const dataContext = useContext(DataContext);
@@ -20,7 +21,8 @@ function Kbb() {
           backgroundImage:
             kbbState &&
             `url(${
-              process.env.REACT_APP_API_URL + kbbState[0]?.header_image?.url
+           /*    process.env.REACT_APP_API_URL + kbbState[0]?.header_image?.url */ images
+                .kbb.header
             })`,
         }}
       >
@@ -34,8 +36,8 @@ function Kbb() {
                 <img
                   className='w-100'
                   src={
-                    process.env.REACT_APP_API_URL +
-                    kbbState[0]?.main_part?.img_1.url
+                  /*   process.env.REACT_APP_API_URL +
+                    kbbState[0]?.main_part?.img_1.url */ images.kbb.images[0]
                   }
                   alt=''
                 />

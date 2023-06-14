@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { AboutUsStyled } from "../../styles/pages";
 import DataContext from "../../context/dataContext";
 import Markdown from "markdown-to-jsx";
+import { images } from "../../constant/images";
 
 function AboutUs() {
   const dataContext = useContext(DataContext);
@@ -20,8 +21,8 @@ function AboutUs() {
           backgroundImage:
             hakkımızdaState &&
             `url(${
-              process.env.REACT_APP_API_URL +
-              hakkımızdaState[0]?.header_image?.url
+            /*   process.env.REACT_APP_API_URL +
+              hakkımızdaState[0]?.header_image?.url */ images.aboutUs.header
             })`,
         }}
       >

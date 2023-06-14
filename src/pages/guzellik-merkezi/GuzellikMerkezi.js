@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { GuzellikMerkeziStyled } from "../../styles/pages";
 import DataContext from "../../context/dataContext";
+import { images } from "../../constant/images";
 
 function GuzellikMerkezi() {
   const dataContext = useContext(DataContext);
@@ -19,8 +20,9 @@ function GuzellikMerkezi() {
           backgroundImage:
             guzellikMerkeziState &&
             `url(${
-              process.env.REACT_APP_API_URL +
-              guzellikMerkeziState[0]?.header_image?.url
+            /*   process.env.REACT_APP_API_URL +
+              guzellikMerkeziState[0]?.header_image?.url */  images
+                .guzellikMerkezi.header
             })`,
         }}
       >
@@ -69,10 +71,11 @@ function GuzellikMerkezi() {
           <div className='container'>
             <div className='row '>
               {guzellikMerkeziState &&
-                guzellikMerkeziState[0].beauty_photos.map((item) => (
+                guzellikMerkeziState[0].beauty_photos.map((item,index) => (
                   <div className='col-sm-12 col-md-6 col-lg-3'>
                     <img
-                      src={process.env.REACT_APP_API_URL + item?.image?.url}
+                      src={/* process.env.REACT_APP_API_URL + item?.image?.url */ images
+                      .guzellikMerkezi.images[index]}
                       alt='güzellik merkezi'
                     />
                   </div>

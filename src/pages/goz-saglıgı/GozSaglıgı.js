@@ -3,6 +3,7 @@ import { GozSaglıgıStyled } from "../../styles/pages";
 import { Row, Nav, Col, Tab } from "react-bootstrap";
 import DataContext from "../../context/dataContext";
 import Markdown from "markdown-to-jsx";
+import { images } from "../../constant/images";
 
 function GozSaglıgı() {
   const dataContext = useContext(DataContext);
@@ -20,8 +21,8 @@ function GozSaglıgı() {
           backgroundImage:
             gozSaglıgıState &&
             `url(${
-              process.env.REACT_APP_API_URL +
-              gozSaglıgıState[0]?.header_image?.url
+             /*  process.env.REACT_APP_API_URL +
+              gozSaglıgıState[0]?.header_image?.url */ images.gozSaglıgı.header
             })`,
         }}
       >
@@ -53,7 +54,7 @@ function GozSaglıgı() {
                 <Col sm={9}>
                   <Tab.Content>
                     {gozSaglıgıState &&
-                      gozSaglıgıState[0].goz_tabs.map((item) => (
+                      gozSaglıgıState[0].goz_tabs.map((item,index) => (
                         <Tab.Pane eventKey={item.title} key={item.key}>
                           <h1> {item.title}</h1>
                           <Markdown>{item.description}</Markdown>
@@ -61,7 +62,8 @@ function GozSaglıgı() {
                           <br />
                           <img
                             src={
-                              process.env.REACT_APP_API_URL + item?.image?.url
+                            /*   process.env.REACT_APP_API_URL + item?.image?.url */ images
+                                .gozSaglıgı.images[index]
                             }
                             alt={item.title}
                           />

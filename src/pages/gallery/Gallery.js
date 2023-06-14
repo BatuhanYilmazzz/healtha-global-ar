@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect, useContext } from "react";
 import Lightbox from "react-image-lightbox";
 import DataContext from "../../context/dataContext";
 import "react-image-lightbox/style.css";
+import { images } from "../../constant/images";
 
 ///
 const Gallery = () => {
@@ -13,11 +14,11 @@ const Gallery = () => {
     // eslint-disable-next-line
   }, []);
 
-  const swiperimages =
-    galeriState &&
+  const swiperimages = images.galeri.images;
+   /*  galeriState &&
     galeriState[0].gallery_images.map(
       (item) => process.env.REACT_APP_API_URL + item?.image?.url
-    );
+    ); */
   // images && images.map((e) => process.env.REACT_APP_API_URL + e.url);
   const [state, setState] = useState({
     photoIndex: 0,
@@ -32,7 +33,8 @@ const Gallery = () => {
           backgroundImage:
             galeriState &&
             `url(${
-              process.env.REACT_APP_API_URL + galeriState[0]?.header_image?.url
+            /*   process.env.REACT_APP_API_URL + galeriState[0]?.header_image?.url */ images
+                .galeri.header
             })`,
         }}
       >
